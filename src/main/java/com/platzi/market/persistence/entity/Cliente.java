@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+
+/**
+ * Interfaz que extiende CrudRepository: ClienteCrudRepository
+ * Clase que implementa los métodos CRUD: ClienteRepository
+ *
+ */
 @Entity
 @Table(name = "clientes")
 public class Cliente {

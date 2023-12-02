@@ -4,16 +4,9 @@ package com.platzi.market.persistence.entity;
 import jakarta.persistence.*;
 
 /**
- * Puede tener una única categoría
+ * Interfaz que extiende CrudRepository: ProductoCrudRepository
+ * Clase que implementa los métodos CRUD: ProductoRepository
  *
- * private Long idProducto;
- * private String nombre;
- * private Long idCategoria;
- * private String codigoBarras;
- * private Double precioVenta;
- * private Integer cantidadStock;
- * private Boolean estado;
- * private Category categoria;
  */
 @Entity
 @Table(name = "productos")

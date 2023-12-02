@@ -5,6 +5,12 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+/**
+ * Interfaz que extiende CrudRepository: CompraCrudRepository
+ * Clase que implementa los métodos CRUD: CompraRepository
+ *
+ */
 @Entity
 @Table(name = "compras")
 public class Compra {

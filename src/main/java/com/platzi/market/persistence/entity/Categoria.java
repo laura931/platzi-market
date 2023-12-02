@@ -4,6 +4,12 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+
+/**
+ * Interfaz que extiende CrudRepository: CategoriaCrudRepository
+ * Clase que implementa los métodos CRUD: CategoriaRepository
+ *
+ */
 @Entity
 @Table(name = "categorias")
 public class Categoria {
