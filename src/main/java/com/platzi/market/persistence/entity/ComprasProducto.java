@@ -1,8 +1,6 @@
 package com.platzi.market.persistence.entity;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * La tabla compras-productos tiene dos claves únicas como su primary key: compras y productos
@@ -10,20 +8,28 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name="compras-productos")
-public class PuchasesProduct {
+public class ComprasProducto {
 
     @EmbeddedId
-    private PurchasesProductPK id;
+    private ComprasProductoPK id;
 
     private Integer cantidad;
     private Double total;
     private Boolean estado;
 
-    public PurchasesProductPK getId() {
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = true, updatable = true)
+    private Producto Producto;
+
+    public ComprasProductoPK getId() {
         return id;
     }
 
-    public void setId(PurchasesProductPK id) {
+    public void setId(ComprasProductoPK id) {
         this.id = id;
     }
 
@@ -49,5 +55,21 @@ public class PuchasesProduct {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public com.platzi.market.persistence.entity.Producto getProducto() {
+        return Producto;
+    }
+
+    public void setProducto(com.platzi.market.persistence.entity.Producto producto) {
+        Producto = producto;
     }
 }

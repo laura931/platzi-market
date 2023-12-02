@@ -2,9 +2,11 @@ package com.platzi.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "categorias")
-public class Category {
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
@@ -13,10 +15,13 @@ public class Category {
     private String descripcion;
     private Boolean estado;
 
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
+
+
     public Long getIdCategoria() {
         return idCategoria;
     }
-
     public void setIdCategoria(Long idCategoria) {
         this.idCategoria = idCategoria;
     }
@@ -24,7 +29,6 @@ public class Category {
     public String getDescripcion() {
         return descripcion;
     }
-
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -32,8 +36,15 @@ public class Category {
     public Boolean getEstado() {
         return estado;
     }
-
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
 }

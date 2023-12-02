@@ -3,10 +3,11 @@ package com.platzi.market.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
-public class Purchase {
+public class Compra {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
@@ -23,10 +24,16 @@ public class Purchase {
     private String comentario;
     private String estado;
 
+    @ManyToOne
+    @JoinColumn( name="id_cliente" ,  insertable = false, updatable = false)
+    private Cliente comprador;
+
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
+
     public Long getIdCompra() {
         return idCompra;
     }
-
     public void setIdCompra(Long idCompra) {
         this.idCompra = idCompra;
     }
@@ -34,7 +41,6 @@ public class Purchase {
     public Long getIdCliente() {
         return idCliente;
     }
-
     public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
     }
@@ -42,7 +48,6 @@ public class Purchase {
     public LocalDateTime getFecha() {
         return fecha;
     }
-
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
@@ -50,7 +55,6 @@ public class Purchase {
     public String getMedioPago() {
         return medioPago;
     }
-
     public void setMedioPago(String medioPago) {
         this.medioPago = medioPago;
     }
@@ -58,7 +62,6 @@ public class Purchase {
     public String getComentario() {
         return comentario;
     }
-
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
@@ -66,8 +69,14 @@ public class Purchase {
     public String getEstado() {
         return estado;
     }
-
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Cliente getComprador() {
+        return comprador;
+    }
+    public void setComprador(Cliente comprador) {
+        this.comprador = comprador;
     }
 }
