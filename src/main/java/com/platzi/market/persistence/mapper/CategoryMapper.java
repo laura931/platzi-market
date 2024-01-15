@@ -16,7 +16,7 @@ public interface CategoryMapper {
     })
     Category toCategory(Categoria categoria);
 
-    @InheritInverseConfiguration
-    @Mapping(target="productos", ignore = true)
+    @InheritInverseConfiguration //indica al proyecto que este Mappeo es el inverso al que está arriba. No es necesario definir más mappings
+    @Mapping(target="productos", ignore = true) //indica que se ignorará el atributo productos de la clase Categoria en al conversión, Esto es porque en Category, dicho atributo no se emplea
     Categoria toCategoria(Category category);
 }
