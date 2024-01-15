@@ -13,7 +13,7 @@ import java.util.Optional;
  * De este modo, siempre hablaremos en términos del dominio (Product) y no de la capa de persistencia (Producto)
  */
 @Repository
-public class ProductRepository {
+public class ProductoRepository {
     private ProductoCrudRepository productoCrudRepository;
 
     public List<Producto> getAll(){
