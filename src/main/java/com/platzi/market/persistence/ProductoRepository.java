@@ -46,10 +46,6 @@ public class ProductoRepository implements ProductRepository {
         return null;
     }
 
-    public List<Producto> getByCategoria(int idCategoria){
-        return productoCrudRepository.findByIdCategoriaOrderByNombreASC(idCategoria);
-    }
-
     public Optional<List<Producto>> getEscasos(int cantidad){
         return productoCrudRepository.findByCategoriaStockLessthanAndEstado(cantidad, true);
     }
