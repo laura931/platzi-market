@@ -28,5 +28,7 @@ public interface ProductMapper {
     // se trata de una conversion de productos a product y empleará el conversor toProduct
     List<Product> toProducts(List<Producto> productos);
 
-    
+    @InheritInverseConfiguration
+    @Mapping(target = "codigoBarras", ignore = true)
+    Producto toProducto(Product product);
 }
