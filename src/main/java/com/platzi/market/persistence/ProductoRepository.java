@@ -49,11 +49,13 @@ public class ProductoRepository implements ProductRepository {
         return null;
     }
 
+    
     public Producto save(Producto producto){
         return productoCrudRepository.save(producto);
     }
 
-    public void delete(int idProducto){
-        productoCrudRepository.deleteById(idProducto);
+    @Override
+    public void delete(int productId){
+        productoCrudRepository.deleteById(productId);
     }
 }
