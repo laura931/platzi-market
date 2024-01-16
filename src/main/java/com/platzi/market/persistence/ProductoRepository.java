@@ -1,5 +1,7 @@
 package com.platzi.market.persistence;
 
+import com.platzi.market.domain.Product;
+import com.platzi.market.domain.repository.ProductRepository;
 import com.platzi.market.persistence.crud.ProductoCrudRepository;
 import com.platzi.market.persistence.entity.Producto;
 import org.springframework.stereotype.Repository;
@@ -13,11 +15,31 @@ import java.util.Optional;
  * De este modo, siempre hablaremos en términos del dominio (Product) y no de la capa de persistencia (Producto)
  */
 @Repository
-public class ProductoRepository {
+public class ProductoRepository implements ProductRepository {
     private ProductoCrudRepository productoCrudRepository;
 
     public List<Producto> getAll(){
         return (List<Producto>) productoCrudRepository.findAll();
+    }
+
+    @Override
+    public Optional<List<Product>> getByCategory(int categoryId) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<List<Product>> getScarseProducts(int quantity) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<Product> getProduct(int productId) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Product save(Product product) {
+        return null;
     }
 
     public List<Producto> getByCategoria(int idCategoria){
