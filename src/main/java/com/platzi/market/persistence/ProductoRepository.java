@@ -3,6 +3,7 @@ package com.platzi.market.persistence;
 import com.platzi.market.domain.Product;
 import com.platzi.market.domain.repository.ProductRepository;
 import com.platzi.market.persistence.crud.ProductoCrudRepository;
+import com.platzi.market.persistence.entity.Categoria;
 import com.platzi.market.persistence.entity.Producto;
 import com.platzi.market.persistence.mapper.ProductMapper;
 import org.springframework.stereotype.Repository;
@@ -28,7 +29,8 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
-        return Optional.empty();
+        List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByNombreASC(categoryId);
+        return Optional.of(mapper.toProducts(productos));
     }
 
     @Override
