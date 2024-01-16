@@ -49,11 +49,6 @@ public class ProductoRepository implements ProductRepository {
         return null;
     }
 
-    
-    public Producto save(Producto producto){
-        return productoCrudRepository.save(producto);
-    }
-
     @Override
     public void delete(int productId){
         productoCrudRepository.deleteById(productId);
