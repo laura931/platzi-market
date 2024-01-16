@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 // el atributo uses en la notación Mapper le indica que cuando vaya a convertir categoría, tiene que usar
 // el mapper de category
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
@@ -22,9 +24,9 @@ public interface ProductMapper {
     })
     Product toProduct(Producto producto);
 
-    @InheritInverseConfiguration
-    @Mapping(target = "codigoBarras", ignore = true)
-    Producto toProducto(Product product);
+    //En este caso no es necesario definir un Mapper ya que internamente sabe que
+    // se trata de una conversion de productos a product y empleará el conversor toProduct
+    List<Product> toProducts(List<Producto> productos);
 
     
 }
