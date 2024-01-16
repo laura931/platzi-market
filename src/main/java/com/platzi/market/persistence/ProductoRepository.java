@@ -48,10 +48,6 @@ public class ProductoRepository implements ProductRepository {
         return null;
     }
 
-    public Optional<List<Producto>> getEscasos(int cantidad){
-        return productoCrudRepository.findByCategoriaStockLessthanAndEstado(cantidad, true);
-    }
-
     public Optional<Producto> getProducto(int idProducto){
         return productoCrudRepository.findById(idProducto);
     }
